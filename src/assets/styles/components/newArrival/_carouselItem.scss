@@ -1,0 +1,55 @@
+// Product carousel
+
+.carouselItemDiv { 
+  img {
+    width: 146.67px;
+    height: 220.52px;
+
+    @include wide {    
+      width: 280px;
+      height: 421px;
+    }    
+  }
+
+  .carouselItemTitle {
+    text-align: center;
+
+    .carouselItemName {
+      margin: 22px auto 0 auto;
+      font-size: 16px;
+      font-weight: 400;
+  
+      @include wide {    
+        font-size: 22px;     
+        line-height: 26px;   
+      }
+    }
+
+    .carouselItemCat {
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+      font-size: 12px;
+
+      @include wide {    
+        font-size: 16px; 
+        line-height: 19px;     
+        font-weight: 300;
+      }
+    }
+
+    .carouselItemPrice {
+      margin: 0 auto;
+      padding: 0;
+      color: $color-green;
+      font-family: $font-cursive;
+      font-weight: 400;
+      font-size: 18px;
+
+      @include wide {    
+        font-size: 26px;        
+        line-height: 46px;
+      }
+    } 
+  }
+}

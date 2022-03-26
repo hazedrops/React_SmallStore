@@ -1,0 +1,98 @@
+// Style for common featured areas
+
+.shopNow {
+  background-color: $color-dark-white;
+  display: flex;
+  height: 177px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color-green;
+  padding: 1em;
+
+  h1 {
+    margin: 0;
+    font-family: $font-cursive;
+    font-size: 26px;
+    font-weight: 400;
+
+    @include wide {
+      font-size: 60px;      
+    }    
+
+    @include desktop {
+      font-size: 36px;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0.5em 0 1em 0;
+
+    @include wide {
+      font-size: 26px;      
+    }    
+
+    @include desktop {
+      font-size: 20px;
+    }
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 124.55px;
+    height: 42px;
+    text-align: center;
+    background-color: $color-black;
+    color: $color-white;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+
+    @include media(desktop, wide) {
+      width: 129px;
+      height: 43px;
+      font-size: 14px;      
+    }
+  }
+}
+
+.heroNewArrival {
+  @include media(desktop, wide) {      
+    height: auto;
+    position: absolute;
+    top: 208px;
+    left: 133px;
+    padding: 0;
+    background-color: transparent;    
+    align-items: flex-start;
+  }      
+}
+
+.favorite {
+  @include media(desktop, wide) {
+    height: auto;
+    position: absolute;
+    top: 52px;
+    right: 54px;
+    padding: 0;
+    background-color: transparent;    
+    color: $color-white;
+    align-items: flex-start;
+  }  
+
+  span {
+    @include media(desktop, wide) {
+      background-color: $color-green;
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,87 @@
+// Menus in Footer
+
+.footerMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 13px 20px 29px 20px;
+  background-color: $color-black;
+  color: $color-white;
+  font-family: $font-cursive;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 38.63px;
+  margin: 0;
+
+  @include media(tablet, desktop, wide) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 62px 125px 62px 48px;
+  }
+
+  .footerMenuGroup {
+    display: flex;
+    flex-direction: column;
+
+    @include media(tablet, desktop, wide) {
+      flex-direction: row;
+      justify-content: space-around;
+    } 
+
+    .footerMenuSingle {
+        @include media(tablet, desktop, wide) {
+          margin-right: 92px;
+        }
+
+      .footerMenuTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        p {
+          margin: 0;
+        }
+
+        .sign {
+          font-weight: 300;
+          font-size: 0.7em;
+
+          @include media(tablet, desktop, wide) {
+            display: none;
+          }
+        }
+      }
+
+      .collapse-content {
+        &.collapsed {
+          display: none;
+
+          @include media(tablet, desktop, wide) {
+            display: block;
+          }
+        }
+
+        &.expanded {
+          display: block;
+        }
+
+        .footerMenuUl {
+          margin: 0.5em 0;
+          padding-left: 0;
+
+          .footerMenuList {
+            list-style: none;
+            font-family: $font-main;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 30px;
+
+            @include media(desktop, wide) {
+              font-size: 18px;
+            }
+
+          }
+        }
+      }  
+    }        
+  }  
+}

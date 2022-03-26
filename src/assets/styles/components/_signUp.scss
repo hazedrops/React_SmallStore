@@ -1,0 +1,126 @@
+// Sign up section
+
+.signUpDiv {
+  position: relative;
+  background-color: $color-green;
+  display: flex;
+  height: 239px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: $color-dark-white;
+  padding-top: 14px;
+  padding-bottom: 25px;
+
+  .signUpText {
+    text-align: center;
+
+    .signUpHeadline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3em;
+      margin-bottom: 11px;
+
+      img {
+        width: 28.36px;
+        height: 19.5px;
+
+        @include media(desktop, wide) {
+          width: 52.36px;
+          height: 36px;
+          object-fit: cover;
+        }
+      }
+
+      h2 {
+        margin: 0;
+        font-family: $font-cursive;
+        font-size: 20px;
+        font-weight: 400;
+
+        @include media(desktop, wide) {
+          font-size: 40px;
+        }
+      }
+    }
+  } 
+  
+  .signUpLowerDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 48px;
+
+    p {
+      margin: 0 0 56px 0;
+      width: 322px;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+
+      @include wide {
+        font-size: 22px;        
+        width: 50%;   
+        text-align: initial;
+        margin: 0 .5em;
+      }
+
+      @include desktop {
+        font-size: 18px;        
+        width: 50%;   
+        text-align: initial;
+        margin: 0 .5em;
+      }
+    }
+
+    input {
+      width: 490px;
+      height: 54px;
+      margin-right: 13px;
+      padding: 15px 0 13px 17px;
+      display: none;
+
+      &::placeholder { 
+        color: $color-gray;
+;
+      }
+
+      @include media(desktop, wide) {
+        display: inline-block;
+      }
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 148px;
+      height: 41px;
+      text-align: center;
+      background-color: transparent;
+      color: $color-white;
+      border: 1px solid $color-white;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+
+      @include media(desktop, wide) {
+        width: 140px;
+        height: 54px;
+        font-size: 14px;
+      }
+    }
+
+    @include media(desktop, wide) {
+      flex-direction: row;
+    }
+  }      
+
+  @include media(desktop, wide) {
+      height: 332px;
+      padding-top: 75px;
+      padding-bottom: 102px;
+  }
+}

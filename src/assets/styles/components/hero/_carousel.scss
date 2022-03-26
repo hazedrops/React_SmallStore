@@ -1,0 +1,33 @@
+// Carousel in Hero section
+
+.carousel {
+  .carousel .slide img {
+    height: 63vw;
+    min-height: 227px;
+    min-width: 375px;
+
+    @include wide {
+      height: 177vw;
+      max-height: 638px;
+    }    
+
+    @include desktop {
+      height: 120vh;
+    }
+
+  } 
+
+  .control-dots {
+    .dot {
+      @include wide {
+        width: 20px;
+        height: 20px;
+      }
+
+      @include desktop {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}

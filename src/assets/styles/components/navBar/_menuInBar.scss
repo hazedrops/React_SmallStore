@@ -1,0 +1,32 @@
+// Nav menu - shown when the window gets wider
+
+.menuInBar ul {  
+  display: none;  
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  color: $color-white;
+  flex-wrap: wrap;
+
+  @include media(desktop, wide) {
+    display: flex;
+  }
+}
+
+.menuInBar ul li {
+  list-style-type: none;
+  text-transform: uppercase;  
+
+  @include media(desktop) {    
+    font-size: 18px;
+    padding: 0 .7em;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  @include media(wide) {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 1.5em;
+  }
+}

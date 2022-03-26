@@ -1,0 +1,7 @@
+// Hero section - to fix the text elements & span
+
+.hero {
+  @include media(desktop, wide) {
+    position: relative;
+  }
+}

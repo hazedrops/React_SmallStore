@@ -1,0 +1,50 @@
+// 'New Arrival' section with product carousel
+
+.newArrival {
+  background-color: $color-white;
+  padding-top: 17px;
+  padding-bottom: 31px;
+  text-align: center;
+
+  h1 {
+    margin: 0 auto 0.5em;
+    font-family: $font-cursive;
+    font-size: 26px;
+    font-weight: 400;
+    color: $color-black;
+  
+    @include wide {    
+      font-size: 60px;
+    }
+
+    @include desktop {    
+      font-size: 43px;
+    }
+
+    span {
+      @include media(desktop, wide) {
+        display: none;
+      }      
+    }
+  }
+
+  // Removing arrow background when hovered & adjusts arrows' positions
+  .react-multiple-carousel__arrow {
+    &.react-multiple-carousel__arrow--left,
+    &.react-multiple-carousel__arrow--right {
+      background: rgba(0, 0, 0, 0);
+    }
+
+    &.react-multiple-carousel__arrow--left {
+      left: 0;
+    }
+
+    &.react-multiple-carousel__arrow--right {
+      right: 0;
+    }
+  } 
+
+  .react-multiple-carousel__arrow::before {
+    color: $color-black;
+  }
+}

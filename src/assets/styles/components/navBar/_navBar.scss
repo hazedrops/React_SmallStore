@@ -1,0 +1,24 @@
+// Navigation bar
+
+.navBar {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  padding: 14px 20px 4px 20px;
+  background: $color-green;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media(desktop, wide) {
+    height: 135px;
+    padding: 34px 48px 27px 48px;
+    
+  }
+
+  button {
+    left: 40px;
+    top: 40px;
+    z-index: 10;
+    cursor: pointer;
+  }
+}

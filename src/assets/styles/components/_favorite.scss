@@ -1,0 +1,26 @@
+// Image over the 'Our Favorite Tees' section
+
+.favoriteDiv {
+  height: 404px;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 63vw;
+    min-height: 227px;
+    min-width: 375px;
+
+    @include wide {
+      height: 177vw;
+      max-height: 638px;
+    }    
+
+    @include desktop {
+      height: 120vh;
+    }
+  }
+
+  @include media(desktop, wide) {
+    position: relative;
+  }
+}
