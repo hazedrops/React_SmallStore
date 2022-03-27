@@ -7,7 +7,7 @@ function Subscribe() {
     <div className='signUpDiv'>
       <div className='signUpText'>
         <div className='signUpHeadline'>
-          <img src={envelope} />
+          <img src={envelope} alt='envelope image' />
           <h2>Sign Up & Stay Connected</h2>
         </div>
       </div>

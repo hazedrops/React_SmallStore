@@ -15,13 +15,13 @@ function DemoCarousel() {
       className='carouselContainer'
     >
       <div>
-        <img src={img1} />
+        <img src={img1} alt='hero image 1' />
       </div>
       <div>
-        <img src={img2} />
+        <img src={img2} alt='hero image 2' />
       </div>
       <div>
-        <img src={img3} />
+        <img src={img3} alt='hero image 3' />
       </div>
     </Carousel>
   )

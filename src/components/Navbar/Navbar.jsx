@@ -20,7 +20,7 @@ function Navbar() {
         </div>
 
         <div className='logoDiv'>
-          <img src={logo} className='logoImg' />
+          <img src={logo} className='logoImg' alt='logo image' />
         </div>
       </div>
 
@@ -34,7 +34,7 @@ function Navbar() {
       </div>
 
       {/* Shown by hamburger button click */}
-      <div className={`navMenu ${navbarOpen ? 'show' : 'hide'}`}>     
+      <div className={`navMenu ${navbarOpen ? 'show' : 'hide'}`}>
         <ul>
           <li>Men's</li>
           <li>Women's</li>
