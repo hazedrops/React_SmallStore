@@ -4,7 +4,7 @@ import img1 from '../../assets/img/proImg1.png'
 function MultiCarouselItem() {
   return (
     <div className='carouselItemDiv'>
-      <img src={img1} alt='product image' />
+      <img src={img1} alt='product' />
       <div className='carouselItemTitle'>
         <p className='carouselItemName'>Product Title</p>
         <p className='carouselItemCat'>WOMEN'S T-SHIRT</p>

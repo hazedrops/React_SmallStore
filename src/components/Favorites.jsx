@@ -12,7 +12,7 @@ function Favorites() {
 
   return (
     <div className='favoriteDiv'>
-      <img src={img1} className='favoriteImg' alt='favorite tees image' />
+      <img src={img1} className='favoriteImg' alt='favorite tees' />
       <CommonFeature h1={favorite.h1} p={favorite.p} />
     </div>
   )
