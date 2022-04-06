@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../../assets/img/logo.png'
+import logo from '../../assets/img/newImages/logo_first.png'
 import { FaUser, FaShoppingCart } from 'react-icons/fa'
 import { GoSearch } from 'react-icons/go'
 import Hamburger from './Hamburger'
@@ -9,7 +9,7 @@ function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
   const handleToggle = () => {
-    setNavbarOpen((prev) => !prev)    
+    setNavbarOpen((prev) => !prev)
   }
 
   return (
@@ -26,8 +26,8 @@ function Navbar() {
 
       <div className='menuInBar'>
         <ul>
-          <li>Men's</li>
-          <li>Women's</li>
+          <li>Bags</li>
+          <li>Shoes</li>
           <li>accessories</li>
           <li>sale!</li>
         </ul>
@@ -36,8 +36,8 @@ function Navbar() {
       {/* Shown by hamburger button click */}
       <div className={`navMenu ${navbarOpen ? 'show' : 'hide'}`}>
         <ul>
-          <li>Men's</li>
-          <li>Women's</li>
+          <li>Bags</li>
+          <li>Shoes</li>
           <li>accessories</li>
           <li>sale!</li>
         </ul>

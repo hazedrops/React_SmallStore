@@ -1,7 +1,7 @@
 import { Carousel } from 'react-responsive-carousel'
-import img1 from '../../assets/img/HeroImage1.png'
-import img2 from '../../assets/img/HeroImage2.png'
-import img3 from '../../assets/img/HeroImage3.png'
+import img1 from '../../assets/img/newImages/HeroImage1.jpg'
+import img2 from '../../assets/img/newImages/HeroImage2.jpg'
+import img3 from '../../assets/img/newImages/HeroImage3.jpg'
 
 function DemoCarousel() {
   return (

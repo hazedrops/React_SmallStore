@@ -13,6 +13,8 @@
 
   .carouselItemTitle {
     text-align: center;
+    color: $color-first;
+    font-weight: 600;
 
     .carouselItemName {
       margin: 22px auto 0 auto;
@@ -41,8 +43,8 @@
     .carouselItemPrice {
       margin: 0 auto;
       padding: 0;
-      color: $color-green;
-      font-family: $font-cursive;
+      color: $color-first;
+      font-family: $font-main;
       font-weight: 400;
       font-size: 18px;
 

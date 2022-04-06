@@ -5,7 +5,8 @@
   flex-direction: row;
   justify-content: space-around;
   margin: 0;
-  color: $color-white;
+  color: $color-first;
+  font-weight: 600;
   flex-wrap: wrap;
 
   @include media(desktop, wide) {

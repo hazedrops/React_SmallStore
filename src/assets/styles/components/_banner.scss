@@ -1,7 +1,7 @@
 // Banner
 
 .bannerDiv {
-  background-color: $color-black;
+  background-color: $color-first;
   color: $color-white;
   width: 100%;
   height: 46px;
@@ -12,7 +12,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16.8px;
-  letter-spacing: 10%;
+  letter-spacing: 15%;
 
   @include media(tablet, desktop, wide) {
     height: 58px;

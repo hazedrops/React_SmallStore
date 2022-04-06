@@ -1,18 +1,19 @@
 // Carousel in Hero section
 
 .carousel {
-  .carousel .slide img {
-    height: 63vw;
+  .slide img {
+    height: 30vw;
     min-height: 227px;
     min-width: 375px;
+    object-fit: cover;
 
     @include wide {
-      height: 177vw;
+      height: 25vw;
       max-height: 638px;
     }    
 
     @include desktop {
-      height: 120vh;
+      // height: 500px;
     }
 
   } 

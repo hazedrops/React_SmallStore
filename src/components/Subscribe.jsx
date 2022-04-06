@@ -1,5 +1,5 @@
 import React from 'react'
-import envelope from '../assets/img/envelope.png'
+import { FaEnvelope } from 'react-icons/fa'
 
 // Sign Up & Stay Connected section
 function Subscribe() {
@@ -7,7 +7,7 @@ function Subscribe() {
     <div className='signUpDiv'>
       <div className='signUpText'>
         <div className='signUpHeadline'>
-          <img src={envelope} alt='envelope' />
+          <FaEnvelope className='faIcon' />
           <h2>Sign Up & Stay Connected</h2>
         </div>
       </div>
