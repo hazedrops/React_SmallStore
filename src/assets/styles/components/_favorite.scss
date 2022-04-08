@@ -6,8 +6,9 @@
   justify-content: center;
 
   img {
-    height: 53vw;
+    // height: 53vw;
     min-height: 227px;
+    max-height: 423px;;
     min-width: 375px;
     object-fit: cover;
 
@@ -24,8 +25,4 @@
   @include media(desktop, wide) {
     position: relative;
   }
-
-  // @include tablet {
-  //   position: relative;
-  // }
 }
