@@ -5,7 +5,7 @@ import Category from './components/Category/Category'
 import Favorites from './components/Favorites'
 import Footer from './components/Footer/Footer'
 import NewArrivals from './components/NewArrival/NewArrivals'
-import Subscribe from './components/Subscribe'
+import Subscribe from './components/Subscribe/Subscribe'
 import Hero from './components/Hero/Hero'
 
 function App() {

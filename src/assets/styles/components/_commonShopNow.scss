@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // color: darken($color-first, 20%);
   color: $color-main-text;
   padding: 1em;
 
@@ -66,7 +65,7 @@
   @include media(desktop, wide) {      
     height: auto;
     position: absolute;
-    top: 180px;
+    bottom: 60px;
     left: 100px;
     padding: 0;
     background-color: transparent;    
@@ -74,21 +73,36 @@
   }      
 }
 
-.favorite {
+.favorite {  
   @include media(desktop, wide) {
     height: auto;
     position: absolute;
-    top: 52px;
+    top: 72px;
     right: 54px;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     padding: 0;
     background-color: transparent;    
-    color: $color-white;
-    align-items: flex-start;
+    color: $color-main;
+    align-items: center;
   }  
+
+  @include media(narrow, mobile, tablet) {
+    min-height: 200px;
+    background-color: $color-first;
+    color: $color-white;
+  }
 
   span {
     @include media(desktop, wide) {
-      background-color: $color-first;
+      background-color: $color-main-text;
+    }
+
+    @include media(narrow, mobile, tablet) {
+      background-color: $color-white;
+      color: $color-first;
+      font-weight: 700;
     }
   }
 }

@@ -2,15 +2,16 @@
 
 .signUpDiv {
   position: relative;
-  background-color: $color-main;
+  background: lighten($color-main, 10%);
   display: flex;
-  height: 239px;
+  min-height: 239px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: $color-first;
+  color: $color-main-text;
   padding-top: 14px;
   padding-bottom: 25px;
+  font-family: $font-main;
 
   .signUpText {
     text-align: center;
@@ -33,7 +34,6 @@
 
       h2 {
         margin: 0;
-        font-family: $font-main;
         font-size: 20px;
         font-weight: 500;
 
@@ -51,7 +51,7 @@
     padding: 0 48px;
 
     p {
-      margin: 0 0 56px 0;
+      margin: 0 2em 4em 0;
       width: 322px;
       font-size: 14px;
       font-weight: 500;
@@ -61,55 +61,81 @@
         font-size: 22px;        
         width: 50%;   
         text-align: initial;
-        margin: 0 .5em;
+        margin: 0 1em;
       }
 
       @include desktop {
         font-size: 18px;        
         width: 50%;   
         text-align: initial;
-        margin: 0 .5em;
+        margin: 0 1.5em 0 0;
+      }
+
+      @include media(narrow, mobile, tablet) {
+        margin: 0 0 2em 0;
       }
     }
 
-    input {
-      width: 490px;
-      height: 54px;
-      margin-right: 13px;
-      padding: 15px 0 13px 17px;
-      display: none;
-      border: 1px solid $color-first;
-
-      &::placeholder { 
-        color: $color-main-text;
-;
-      }
-
-      @include media(desktop, wide) {
-        display: inline-block;
-      }
-    }
-
-    span {
+    form {
+      width: 100%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      width: 148px;
-      height: 41px;
-      text-align: center;
-      background-color: $color-first;
-      color: $color-white;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      align-items: center;
 
       @include media(desktop, wide) {
-        width: 140px;
-        height: 54px;
-        font-size: 14px;
+        flex-direction: row;
+        width: 50%;
       }
-    }
+
+      input {
+        width: 100%;
+        max-width: 300px;
+        height: 54px;
+        margin-bottom: .5em;
+        padding: 15px 0 13px 17px;
+        border: 1px solid $color-main-text;
+      
+        &::placeholder {
+          color: $color-main-text;
+        }
+      
+        &:focus {
+          outline-color: $color-first;
+        }
+      
+        @include media(desktop, wide) {
+          width: 80%;
+          margin-right: .5em;
+          margin-bottom: 0;
+        }
+      }
+      
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 140px;
+        height: 40px;
+        text-align: center;
+        background-color: $color-main-text;
+        color: $color-white;
+        cursor: pointer;
+        font-family: $font-main;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border: none;
+      
+        @include media(desktop, wide) {
+          font-size: 14px;
+          height: 54px;
+          min-width: 140px;
+        }
+      }
+    }    
 
     @include media(desktop, wide) {
       flex-direction: row;

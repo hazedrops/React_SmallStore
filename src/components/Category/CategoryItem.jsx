@@ -1,7 +1,7 @@
 import React from 'react'
-import img1 from '../../assets/img/catImg1.png'
-import img2 from '../../assets/img/catImg2.png'
-import img3 from '../../assets/img/catImg3.png'
+import img1 from '../../assets/img/newImages/bag.jpg'
+import img2 from '../../assets/img/newImages/shoes.jpg'
+import img3 from '../../assets/img/newImages/accessories.jpg'
 
 function CategoryItem() {
   return (
@@ -14,7 +14,7 @@ function CategoryItem() {
         <img src={img2} alt='womens' />
         <h2 className='categoryName'>Shoes</h2>
       </div>
-      <div className='categoryItem lastItem'>
+      <div className='categoryItem'>
         <img src={img3} alt='womens' />
         <h2 className='categoryName'>Accessories</h2>
       </div>

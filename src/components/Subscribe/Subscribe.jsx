@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaEnvelope } from 'react-icons/fa'
+import SubscribeForm from './SubscribeForm'
 
 // Sign Up & Stay Connected section
 function Subscribe() {
@@ -17,8 +18,9 @@ function Subscribe() {
           Sign up for the newsletter and get 20% off! Gain access to exclusive
           offers and be the first to know when new stuff drops!
         </p>
-        <input type="email" placeholder="Enter Your Email Address" />
-        <span>subscribe</span>
+        <SubscribeForm />
+        {/* <input type="email" placeholder="Enter Your Email Address" />
+        <span>subscribe</span> */}
       </div>
     </div>
   )

@@ -6,7 +6,7 @@
   width: 28px;
   height: 28px;
   margin-right: 25px;
-  border: 1px solid $color-white;
+  border: 1px solid $color-main-text;
   justify-content: center;
   flex-flow: column nowrap;
   border-radius: 50%;
@@ -22,7 +22,7 @@
   height: 1.69px;
   margin: 1.45px 0;
   border-radius: 10px;
-  background-color: $color-white;
+  background-color: $color-main-text;
   transform-origin: 1px;
   transition: all 0.3s linear;
 }

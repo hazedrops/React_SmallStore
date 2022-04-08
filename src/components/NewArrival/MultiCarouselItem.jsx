@@ -1,14 +1,14 @@
 import React from 'react'
-import img1 from '../../assets/img/proImg1.png'
+// import img1 from '../../assets/img/proImg1.png'
 
-function MultiCarouselItem() {
+function MultiCarouselItem({ img, name, price}) {
+
   return (
     <div className='carouselItemDiv'>
-      <img src={img1} alt='product' />
+      <img src={img} alt='product' />
       <div className='carouselItemTitle'>
-        <p className='carouselItemName'>Product Title</p>
-        <p className='carouselItemCat'>WOMEN'S T-SHIRT</p>
-        <p className='carouselItemPrice'>$19.99</p>
+        <p className='carouselItemName'>{name}</p>
+        <p className='carouselItemPrice'>{price}</p>
       </div>
     </div>
   )

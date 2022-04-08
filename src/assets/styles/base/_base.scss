@@ -16,6 +16,12 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 $wide-width: 1440px;
 
+@mixin narrow {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
 @mixin mobile {
   @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
     @content;
@@ -42,8 +48,12 @@ $wide-width: 1440px;
 
 @mixin media($keys...) {
   @each $key in $keys {
-    @if ($key == phone) {
-      @include phone {
+    @if ($key == narrow) {
+      @include narrow {
+        @content;
+      }
+    } @else if ($key == mobile) {
+      @include mobile {
         @content;
       }
     } @else if ($key == tablet) {
@@ -73,7 +83,7 @@ html {
   // width: 100%;
   height: 100%;
   font-family: $font-main;
-  background-color: $color-main-text;
+  background-color: $color-white;
   overflow-x: hidden;
   overflow-y: scroll;
 }

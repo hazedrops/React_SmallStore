@@ -5,24 +5,32 @@
   padding: 0; 
   align-items: center;
   justify-content: space-between;
-  margin-top: 14px;
-  margin-bottom: 4px;
+  // margin-top: 14px;
+  // margin-bottom: 4px;
 
 
-  @include media(tablet, desktop, wide) {
-    position: static;
-    margin-top: 34px;
-    margin-bottom: 27px;
-  }
+  // @include media(mobile, desktop, wide) {
+  //   // position: static;
+  // }
 
-  img {
-    width: 55.44px;
-    height: 46px;
-
-    @include media(desktop, wide) {
-      width: 93px;
-      height: 77px;
+  .logoIcon {
+    color: $color-main-text;
+    font-size: 3em;
+    
+    @include media(narrow, mobile, tablet) {
+      font-size: 2em;
     }
+    
 
+  // img {
+  //   width: 55.44px;
+  //   height: 46px;
+
+  //   @include media(desktop, wide) {
+  //     width: 93px;
+  //     height: 77px;
+  //   }
+
+  // }
   }
 }

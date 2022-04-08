@@ -4,8 +4,8 @@ import CommonFeature from '../CommonFeature'
 // 'Shop New Arrivals' under Hero carousel
 function ShopnowSection() {
   const newArrival = {
-    h1: 'Shop New Arrivals',
-    p: 'Our coolest items are waiting for you!',
+    h1: 'New Arrivals',
+    p: 'Fresh fashion picks are here!',
     tag: 'newArrival',
   }
 

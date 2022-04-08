@@ -7,10 +7,10 @@
   align-items: center;
   justify-content: space-between;
   width: 8em;
-  color: $color-first;
+  color: $color-main-text;
   font-size: 0.7em;
 
-  @include media(tablet, desktop, wide) {
+  @include media(narrow, tablet, desktop, wide) {
     position: static;
   }
 

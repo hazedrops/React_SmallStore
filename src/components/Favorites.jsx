@@ -1,12 +1,12 @@
 import React from 'react'
-import img1 from '../assets/img/favoriteImg.png'
+import img1 from '../assets/img/newImages/glasses.jpg'
 import CommonFeature from './CommonFeature'
 
 // 'Our Favorite Tees' under product carousel
 function Favorites() {
   const favorite = {
-    h1: 'Our Favorite Tees',
-    p: 'Every tees you need!',
+    h1: 'Our Favorite Glasses',
+    p: 'Every glasses you need!',
     tag: 'favorite',
   }
 

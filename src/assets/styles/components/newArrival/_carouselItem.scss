@@ -1,28 +1,31 @@
 // Product carousel
 
 .carouselItemDiv { 
+  color: $color-main-text;
+
   img {
-    width: 146.67px;
-    height: 220.52px;
+    width: 160px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 0;
 
     @include wide {    
-      width: 280px;
-      height: 421px;
+      width: 300px;
+      height: 420px;
     }    
   }
 
   .carouselItemTitle {
     text-align: center;
-    color: $color-first;
     font-weight: 600;
 
     .carouselItemName {
-      margin: 22px auto 0 auto;
-      font-size: 16px;
+      margin: 18px auto 0 auto;
+      font-size: 1em;
       font-weight: 400;
   
       @include wide {    
-        font-size: 22px;     
+        font-size: 1.5em;     
         line-height: 26px;   
       }
     }
@@ -31,7 +34,7 @@
       margin: 0;
       padding: 0;
       font-weight: 300;
-      font-size: 12px;
+      font-size: .8em;
 
       @include wide {    
         font-size: 16px; 
@@ -43,7 +46,7 @@
     .carouselItemPrice {
       margin: 0 auto;
       padding: 0;
-      color: $color-first;
+      color: darken($color-main-text, 10%);
       font-family: $font-main;
       font-weight: 400;
       font-size: 18px;
