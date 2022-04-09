@@ -3,11 +3,11 @@
 .categorySection {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
 
   .categoryDiv {
     background-color: $color-white;
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     display: grid;
@@ -46,9 +46,7 @@
         max-height: 70vh;
         height: auto;
         margin: .8em auto;
-      }
-
-    
+      }    
 
       img {
         width: 100%;
@@ -84,9 +82,9 @@
       }
     }
 
-    @include wide {
+    @include media(desktop, wide) {
       grid-template-columns: repeat(3, 1fr);
-      padding: 50px 98px;
+      padding: 50px 0;
     }
 
     @include desktop {

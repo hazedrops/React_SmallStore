@@ -1,16 +1,13 @@
 // Sign up section
-
 .signUpDiv {
   position: relative;
   background: lighten($color-main, 10%);
   display: flex;
-  min-height: 239px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   color: $color-main-text;
-  padding-top: 14px;
-  padding-bottom: 25px;
+  padding: 3em 0;
   font-family: $font-main;
 
   .signUpText {
@@ -27,9 +24,9 @@
         font-size: 2.5em;
         margin-right: .1em;
 
-        @include media(desktop, wide) {
+        // @include media(desktop, wide) {
           
-        }
+        // }
       }
 
       h2 {
@@ -47,26 +44,35 @@
   .signUpLowerDiv {
     display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: center;
-    padding: 0 48px;
+    // padding: 0 48px;
+
+    @include media(desktop, wide) {
+      width: 70%;
+      flex-direction: row;
+      justify-content: center;
+    }
 
     p {
       margin: 0 2em 4em 0;
-      width: 322px;
+      width: 100%;
+      // width: 322px;
       font-size: 14px;
       font-weight: 500;
       text-align: center;
 
       @include wide {
         font-size: 22px;        
-        width: 50%;   
+        width: 100%;   
+        // min-width: 
         text-align: initial;
         margin: 0 1em;
       }
 
       @include desktop {
         font-size: 18px;        
-        width: 50%;   
+        // width: 50%;   
         text-align: initial;
         margin: 0 1.5em 0 0;
       }
@@ -76,70 +82,30 @@
       }
     }
 
-    form {
-      width: 100%;
+    span {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-
+      justify-content: center;
+      width: 100%;
+      max-width: 30em;
+      height: 48px;
+      text-align: center;
+      background-color: $color-main-text;
+      color: $color-white;
+      cursor: pointer;
+      font-family: $font-main;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+    
       @include media(desktop, wide) {
-        flex-direction: row;
-        width: 50%;
-      }
-
-      input {
-        width: 100%;
-        max-width: 300px;
+        font-size: 14px;
         height: 54px;
-        margin-bottom: .5em;
-        padding: 15px 0 13px 17px;
-        border: 1px solid $color-main-text;
-      
-        &::placeholder {
-          color: $color-main-text;
-        }
-      
-        &:focus {
-          outline-color: $color-first;
-        }
-      
-        @include media(desktop, wide) {
-          width: 80%;
-          margin-right: .5em;
-          margin-bottom: 0;
-        }
+        min-width: 140px;
       }
-      
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 140px;
-        height: 40px;
-        text-align: center;
-        background-color: $color-main-text;
-        color: $color-white;
-        cursor: pointer;
-        font-family: $font-main;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        border: none;
-      
-        @include media(desktop, wide) {
-          font-size: 14px;
-          height: 54px;
-          min-width: 140px;
-        }
-      }
-    }    
-
-    @include media(desktop, wide) {
-      flex-direction: row;
-    }
+    }       
   }      
 
   @include media(desktop, wide) {

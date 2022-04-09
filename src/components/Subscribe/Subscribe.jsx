@@ -9,18 +9,19 @@ function Subscribe() {
       <div className='signUpText'>
         <div className='signUpHeadline'>
           <FaEnvelope className='faIcon' />
-          <h2>Sign Up & Stay Connected</h2>
+          <h2>Join the Newsletter & Save</h2>
         </div>
       </div>
 
       <div className='signUpLowerDiv'>
-        <p>
+        {/* <p>
           Sign up for the newsletter and get 20% off! Gain access to exclusive
           offers and be the first to know when new stuff drops!
-        </p>
-        <SubscribeForm />
-        {/* <input type="email" placeholder="Enter Your Email Address" />
-        <span>subscribe</span> */}
+        </p> */}
+        {/* <SubscribeForm /> */}
+        {/* <input type="email" placeholder="Enter Your Email Address" /> */}
+        <p>Be The First To Know With Our Emails</p>
+        <span>Sign Me Up</span>
       </div>
     </div>
   )
