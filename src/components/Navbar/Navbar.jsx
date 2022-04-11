@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { IoStorefrontOutline } from 'react-icons/io5'
 // import logo from '../../assets/img/newImages/logo_main.png'
 import { FaUser, FaShoppingCart } from 'react-icons/fa'
@@ -22,7 +23,9 @@ function Navbar() {
 
         <div className='logoDiv'>
           {/* <img src={logo} className='logoImg' alt='logo' /> */}
-          <IoStorefrontOutline className='logoIcon' alt='logo' />
+          <Link to='/'>
+            <IoStorefrontOutline className='logoIcon' alt='logo' />
+          </Link>
         </div>
       </div>
 

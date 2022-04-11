@@ -1,9 +1,18 @@
 import React from 'react'
 import { FaEnvelope } from 'react-icons/fa'
-import SubscribeForm from './SubscribeForm'
+import { Link } from 'react-router-dom'
+
+// import { useNavigate } from 'react-router-dom'
 
 // Sign Up & Stay Connected section
 function Subscribe() {
+  // let navigate = useNavigate()
+
+  // const routeChange = () => {
+  //   let path = '/signup-form'
+  //   navigate(path, { replace: true })
+  // }
+
   return (
     <div className='signUpDiv'>
       <div className='signUpText'>
@@ -14,14 +23,10 @@ function Subscribe() {
       </div>
 
       <div className='signUpLowerDiv'>
-        {/* <p>
-          Sign up for the newsletter and get 20% off! Gain access to exclusive
-          offers and be the first to know when new stuff drops!
-        </p> */}
-        {/* <SubscribeForm /> */}
-        {/* <input type="email" placeholder="Enter Your Email Address" /> */}
         <p>Be The First To Know With Our Emails</p>
-        <span>Sign Me Up</span>
+        <Link to='/signup-form'>
+          <span>Sign Me Up</span>
+        </Link>
       </div>
     </div>
   )
