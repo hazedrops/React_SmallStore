@@ -25,7 +25,7 @@ function SignUpForm() {
           onSubmit={submitForm}
         >
           <Form>
-            <h2>Sign up for the newsletter & get 20% off!</h2>
+            <h1>Sign up for the newsletter & get 20% off!</h1>
             <Field id='firstName' name='firstName' className='submitForm' />
             <Field id='lastName' name='lastName' className='submitForm' />
             <Field id='email' name='email' className='submitForm' />
@@ -33,8 +33,8 @@ function SignUpForm() {
             <button type='submit'>Subscribe</button>
           </Form>
         </Formik>
-        <Footer />
       </div>
+      <Footer />
     </>
   )
 }

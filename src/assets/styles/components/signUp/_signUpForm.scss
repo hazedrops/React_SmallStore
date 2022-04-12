@@ -1,7 +1,64 @@
 // Sign up form section
 .signUpForm {
-  background-color: $color-main-text;  
-  color: $color-white;  
-  margin: 0 auto;  
-  text-align: center;
+  background-color: $color-main;
+  color: $color-main-text;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 80vw;
+    text-align: center;
+    margin: 5em auto;
+    
+    h1 {
+      padding: 1em 0;
+    }
+
+    .submitForm {
+      // border-color: $color-main-text;
+      border: none;
+      // outline: solid $color-main-text;
+      // outline: none;
+      box-shadow: none;
+      margin: 1em auto;
+      padding: 1em;
+      height: 3em;
+      line-height: 2em;
+      width: 100%;
+      max-width: 50%; 
+
+      // &:focus {
+      // }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;    
+      width: 100%;
+      max-width: 140px;
+      height: 48px;
+      margin: 2em auto;
+      background-color: $color-main-text;
+      color: $color-white;
+      cursor: pointer;
+      font-family: $font-main;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+      
+      @include media(desktop, wide) {
+        font-size: 14px;
+        height: 54px;
+      }
+    }
+
+  }
 }
