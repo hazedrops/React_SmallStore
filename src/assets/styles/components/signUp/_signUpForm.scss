@@ -2,6 +2,8 @@
 .signUpForm {
   background-color: $color-main;
   color: $color-main-text;  
+  width: 60%;
+  margin: 2em auto 4em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,32 +11,57 @@
   form {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
+    align-items: center;
     max-width: 80vw;
-    text-align: center;
     margin: 5em auto;
     
     h1 {
-      padding: 1em 0;
+      margin: 0 1em;
+      font-size: 1.4em;
+
+      @include media(desktop, wide) {
+        padding: 1em 0;
+        font-size: 1.6em;
+      }
     }
 
-    .submitForm {
-      // border-color: $color-main-text;
-      border: none;
-      // outline: solid $color-main-text;
-      // outline: none;
-      box-shadow: none;
-      margin: 1em auto;
-      padding: 1em;
-      height: 3em;
-      line-height: 2em;
+    div {
+      display: flex;
+      flex-direction: column;
       width: 100%;
-      max-width: 50%; 
+      min-width: 30vw;
+      max-width: 50vw;
+      margin: 1.5em auto;      
+      align-items: flex-start;
 
-      // &:focus {
-      // }
-    }
+      label {
+        display: flex;
+
+        .labelText {
+          font-weight: 500;
+        }
+        
+        .required {
+          color: red;
+          font-weight: 700;
+        }
+      }     
+
+      .submitForm {
+        margin: 0 auto;
+        border: none;
+        height: 3em;
+        line-height: 2em;
+        width: 100%;
+      }
+
+      .errorMsg {
+        color: $color-first;
+        font-size: .8em;
+        font-weight: 600;
+        margin-top: .3em;
+      }
+    }    
 
     button {
       display: flex;
@@ -53,12 +80,20 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       border: none;
+      transition: all 0.3s ease 0s;
+
+      &:hover {
+        background-color: darken($color-main-text, 10%);
+      }
+
+      &:disabled {
+        opacity: .3;
+      }
       
       @include media(desktop, wide) {
         font-size: 14px;
         height: 54px;
       }
     }
-
   }
 }
