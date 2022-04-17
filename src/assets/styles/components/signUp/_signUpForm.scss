@@ -53,6 +53,11 @@
         height: 3em;
         line-height: 2em;
         width: 100%;
+        padding-left: .5em;
+
+        &:focus {
+          outline: 2px solid $color-first;
+        }
       }
 
       .errorMsg {
