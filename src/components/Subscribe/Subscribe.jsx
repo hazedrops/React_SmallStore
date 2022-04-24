@@ -2,17 +2,8 @@ import React from 'react'
 import { FaEnvelope } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-// import { useNavigate } from 'react-router-dom'
-
 // Sign Up & Stay Connected section
 function Subscribe() {
-  // let navigate = useNavigate()
-
-  // const routeChange = () => {
-  //   let path = '/signup-form'
-  //   navigate(path, { replace: true })
-  // }
-
   return (
     <div className='signUpDiv'>
       <div className='signUpText'>
