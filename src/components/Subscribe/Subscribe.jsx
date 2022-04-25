@@ -15,7 +15,7 @@ function Subscribe() {
 
       <div className='signUpLowerDiv'>
         <p>Be The First To Know With Our Emails</p>
-        <Link to='/signup-form'>
+        <Link to='/subscribe-form'>
           <span>Sign Me Up</span>
         </Link>
       </div>

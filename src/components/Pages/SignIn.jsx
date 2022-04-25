@@ -1,12 +1,11 @@
-import { useSpring, animated } from 'react-spring'
+// import { useSpring, animated } from 'react-spring'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 import Banner from '../Banner'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
-
-import Label from '../Label'
+// import Label from '../Label'
 
 // Define input fields rescrictions
 const SignUpSchema = Yup.object().shape({
@@ -33,23 +32,23 @@ const CustomForm = ({ status, message, onValidated }) => {
     formik.resetForm()
   }
 
-  const props = useSpring({
-    // position: 'relative',
+  // const props = useSpring({
+  //   // position: 'relative',
 
-    to: {
-      height: '0px',
-      opacity: 0,
-      padding: '0px',
-    },
-    from: {
-      height: '100%',
-      opacity: 1,
-      padding: '.5em 0 ',
-    },
+  //   to: {
+  //     height: '0px',
+  //     opacity: 0,
+  //     padding: '0px',
+  //   },
+  //   from: {
+  //     height: '100%',
+  //     opacity: 1,
+  //     padding: '.5em 0 ',
+  //   },
 
-    reset: true,
-    config: { duration: 2000 },
-  })
+  //   reset: true,
+  //   config: { duration: 2000 },
+  // })
 
   return (
     <>
@@ -57,7 +56,7 @@ const CustomForm = ({ status, message, onValidated }) => {
       <Navbar />
 
       <div className='signUpForm'>
-        {status === 'sending' && (
+        {/* {status === 'sending' && (
           <animated.div className='message sending' style={props}>
             sending...
           </animated.div>
@@ -75,7 +74,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             dangerouslySetInnerHTML={{ __html: message }}
             style={props}
           />
-        )}
+        )} */}
 
         <Formik
           initialValues={{ name: '', email: '' }}
@@ -84,25 +83,37 @@ const CustomForm = ({ status, message, onValidated }) => {
         >
           {(formik) => (
             <Form>
-              <h1>Sign up for the newsletter & get 20% off!</h1>
+              <h1>Sign in</h1>
 
               <div>
-                <Label htmlFor='name' text='Name' required={true} />
-                <Field id='name' name='name' className='submitForm' />
+                {/* <Label htmlFor='name' text='Name' required={true} /> */}
+                <Field
+                  id='userInfo'
+                  name='userInfo'
+                  className='signInUserInfo'
+                  placeholder='Email or Mobile number'
+                  required={true}
+                />
                 <ErrorMessage
                   component='div'
                   className='errorMsg'
-                  name='name'
+                  name='userInfo'
                 />
               </div>
 
               <div>
-                <Label htmlFor='email' text='Email' required={true} />
-                <Field id='email' name='email' className='submitForm' />
+                {/* <Label htmlFor='email' text='Email' required={true} /> */}
+                <Field
+                  id='password'
+                  name='password'
+                  className='signInPassword'
+                  placeholder='Password'
+                  required={true}
+                />
                 <ErrorMessage
                   component='div'
                   className='errorMsg'
-                  name='email'
+                  name='password'
                 />
               </div>
 
@@ -111,12 +122,11 @@ const CustomForm = ({ status, message, onValidated }) => {
                 type='submit'
                 onClick={submitForm}
               >
-                Subscribe
+                Sign In
               </button>
             </Form>
           )}
         </Formik>
-        {/* </div> */}
       </div>
 
       <Footer />

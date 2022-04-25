@@ -12,4 +12,8 @@
     color: red;
   }
 
+  @include media(mobile, tablet) {
+    font-size: 1em;
+  }
+
 }

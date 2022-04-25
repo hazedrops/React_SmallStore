@@ -50,7 +50,11 @@ function Navbar() {
 
       <div className='iconDiv'>
         <GoSearch />
-        <FaUser />
+        
+        <Link to='/sign-in'>
+          <FaUser />
+        </Link>
+
         <FaShoppingCart />
       </div>
     </nav>

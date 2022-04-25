@@ -5,7 +5,7 @@ import CustomForm from './CustomForm'
 const uValue = process.env.REACT_APP_MAILCHIMP_U
 const listId = process.env.REACT_APP_MAILCHIMP_ID
 
-const SignUpForm = () => {
+const SubscribeForm = () => {
   const url = `https://hotmail.us14.list-manage.com/subscribe/post?u=${uValue}&id=${listId}`
 
   return (
@@ -24,4 +24,4 @@ const SignUpForm = () => {
   )
 }
 
-export default SignUpForm
+export default SubscribeForm
