@@ -1,4 +1,5 @@
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik'
+import { useSpring, animated } from 'react-spring'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 import Banner from '../Banner'
@@ -18,19 +19,37 @@ const SignUpSchema = Yup.object().shape({
 
 // a basic form
 const CustomForm = ({ status, message, onValidated }) => {
-  const submitForm = async (values, formik) =>{
+  const submitForm = async (values, formik) => {
     const { name, email } = values
 
     email &&
-    name &&
-    email.indexOf('@') > -1 &&
-    onValidated({
-      EMAIL: email,
-      NAME: name,
-    })
+      name &&
+      email.indexOf('@') > -1 &&
+      onValidated({
+        EMAIL: email,
+        NAME: name,
+      })
 
-   formik.resetForm()
+    formik.resetForm()
   }
+
+  const props = useSpring({
+    // position: 'relative',
+
+    to: {
+      height: '0px',
+      opacity: 0,
+      padding: '0px',
+    },
+    from: {
+      height: '100%',
+      opacity: 1,
+      padding: '.5em 0 ',
+    },
+
+    reset: true,
+    config: { duration: 1500 },
+  })
 
   return (
     <>
@@ -38,22 +57,23 @@ const CustomForm = ({ status, message, onValidated }) => {
       <Navbar />
 
       <div className='signUpForm'>
-        {/* <div> */}
         {status === 'sending' && (
-          <div style={{ color: 'blue', fontSize: '1.5em', marginTop: '1em' }}>
+          <animated.div className='message sending' style={props}>
             sending...
-          </div>
+          </animated.div>
         )}
         {status === 'error' && (
-          <div
-            style={{ color: 'red', fontSize: '1.5em', marginTop: '1em' }}
+          <animated.div
+            className='message error'
             dangerouslySetInnerHTML={{ __html: message }}
+            style={props}
           />
         )}
         {status === 'success' && (
-          <div
-            style={{ color: 'green', fontSize: '1.5em', marginTop: '1em' }}
+          <animated.div
+            className='message success'
             dangerouslySetInnerHTML={{ __html: message }}
+            style={props}
           />
         )}
 
@@ -105,7 +125,3 @@ const CustomForm = ({ status, message, onValidated }) => {
 }
 
 export default CustomForm
-
-
-
-

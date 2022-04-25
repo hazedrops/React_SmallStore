@@ -1,0 +1,15 @@
+.message {
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  // position: relative;
+  background-color: $color-main-text;
+  color: $color-white;
+  padding: .5em 0;
+  
+  &.errror {
+    color: red;
+  }
+
+}
