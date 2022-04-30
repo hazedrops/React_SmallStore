@@ -34,7 +34,6 @@ const CustomForm = ({ status, message, onValidated }) => {
   }
 
   const props = useSpring({
-    // position: 'relative',
 
     to: {
       height: '0px',

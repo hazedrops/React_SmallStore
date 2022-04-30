@@ -11,16 +11,21 @@ import SignIn from './components/Pages/SignIn'
 
 function App() {
   return (
-    <Router>
-      <Routes>        
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/forgot-password' element={<ForgotPassword />} />
+    <>
+      <h2>Under Construction!!</h2>
 
-        <Route path='/' element={<Home />} />
-        <Route path='/subscribe-form' element={<SubscribeForm />} />
-      </Routes>
-    </Router>
+      <Router basename='/'>
+        <Routes>
+          <Route exact path={'/'} element={<Home />} />
+
+          <Route path={'/sign-in'} element={<SignIn />} />
+          <Route path={'/sign-up'} element={<SignUp />} />
+          <Route path={'/forgot-password'} element={<ForgotPassword />} />
+
+          <Route path={'/subscribe-form'} element={<SubscribeForm />} />
+        </Routes>
+      </Router>
+    </>
   )
 }
 
