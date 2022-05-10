@@ -12,17 +12,15 @@ import SignIn from './components/Pages/SignIn'
 function App() {
   return (
     <>
-      <h2>Under Construction!!</h2>
-
-      <Router basename='/'>
+      <Router basename='/yoonjeongchoi/projects/SmallStoreReact'>
         <Routes>
-          <Route exact path={'/'} element={<Home />} />
+          <Route exact path='/' element={<Home />} />
 
-          <Route path={'/sign-in'} element={<SignIn />} />
-          <Route path={'/sign-up'} element={<SignUp />} />
-          <Route path={'/forgot-password'} element={<ForgotPassword />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
 
-          <Route path={'/subscribe-form'} element={<SubscribeForm />} />
+          <Route path='/subscribe-form' element={<SubscribeForm />} />
         </Routes>
       </Router>
     </>

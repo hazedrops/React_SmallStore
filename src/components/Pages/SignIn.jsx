@@ -1,113 +1,84 @@
-// import { useSpring, animated } from 'react-spring'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 import Banner from '../Banner'
 import Navbar from '../Navbar/Navbar'
+import Label from '../Label'
 import Footer from '../Footer/Footer'
-// import Label from '../Label'
 
 // Define input fields rescrictions
-const SignUpSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, 'Too short!')
-    .max(20, 'Too long!')
-    .required('Required!'),
+const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email!').required('Required!'),
+  password: Yup.string()
+    .min(8, 'Your password is too short!')
+    .max(20, 'Your password is too long!')
+    .required('Please enter your password.'),
 })
 
 // a basic form
-const CustomForm = ({ status, message, onValidated }) => {
+const SignIn = ({ status, message, onValidated }) => {
+  const [showPassword, setShowPassword] = useState(false)
+  // const [formData, setFormData] = useState({
+  //   email: '',
+  //   password: ''
+  // })
+  // const { email, password } = formData
+
   const submitForm = async (values, formik) => {
-    const { name, email } = values
+    const { email, password } = values
 
     email &&
-      name &&
+      password &&
       email.indexOf('@') > -1 &&
       onValidated({
         EMAIL: email,
-        NAME: name,
+        PASSWORD: password,
       })
 
     formik.resetForm()
   }
 
-  // const props = useSpring({
-  //   // position: 'relative',
-
-  //   to: {
-  //     height: '0px',
-  //     opacity: 0,
-  //     padding: '0px',
-  //   },
-  //   from: {
-  //     height: '100%',
-  //     opacity: 1,
-  //     padding: '.5em 0 ',
-  //   },
-
-  //   reset: true,
-  //   config: { duration: 2000 },
-  // })
-
   return (
-    <>
+    <div>
       <Banner />
       <Navbar />
 
-      <div className='signUpForm'>
-        {/* {status === 'sending' && (
-          <animated.div className='message sending' style={props}>
-            sending...
-          </animated.div>
-        )}
-        {status === 'error' && (
-          <animated.div
-            className='message error'
-            dangerouslySetInnerHTML={{ __html: message }}
-            style={props}
-          />
-        )}
-        {status === 'success' && (
-          <animated.div
-            className='message success'
-            dangerouslySetInnerHTML={{ __html: message }}
-            style={props}
-          />
-        )} */}
-
+      <div className='signInForm'>
         <Formik
-          initialValues={{ name: '', email: '' }}
-          validationSchema={SignUpSchema}
+          initialValues={{ email: '', password: '' }}
+          validationSchema={SignInSchema}
           onSubmit={submitForm}
         >
           {(formik) => (
             <Form>
-              <h1>Sign in</h1>
+              <h1>Welcome Back!</h1>
 
               <div>
-                {/* <Label htmlFor='name' text='Name' required={true} /> */}
+                <Label htmlFor='email' text='Email Address' required={true} />
                 <Field
-                  id='userInfo'
-                  name='userInfo'
-                  className='signInUserInfo'
-                  placeholder='Email or Mobile number'
+                  id='email'
+                  name='email'
+                  className='submitForm'
+                  // placeholder='Email'
                   required={true}
                 />
                 <ErrorMessage
                   component='div'
                   className='errorMsg'
-                  name='userInfo'
+                  name='email'
                 />
               </div>
 
               <div>
-                {/* <Label htmlFor='email' text='Email' required={true} /> */}
+                <Label htmlFor='password' text='Password' required={true} />
                 <Field
                   id='password'
                   name='password'
-                  className='signInPassword'
-                  placeholder='Password'
+                  type='password'
+                  className='submitForm'
+                  // placeholder='Password'
                   required={true}
                 />
                 <ErrorMessage
@@ -130,8 +101,8 @@ const CustomForm = ({ status, message, onValidated }) => {
       </div>
 
       <Footer />
-    </>
+    </div>
   )
 }
 
-export default CustomForm
+export default SignIn
