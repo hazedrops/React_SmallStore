@@ -7,6 +7,8 @@ import Banner from '../Banner'
 import Navbar from '../Navbar/Navbar'
 import Label from '../Label'
 import Footer from '../Footer/Footer'
+import visibilityIcon from '../../assets/img/newImages/visibilityIcon.svg'
+import { ReactComponent as RightArrowIcon } from '../../assets/img/newImages/RightArrowIcon.svg'
 
 // Define input fields rescrictions
 const SignInSchema = Yup.object().shape({
@@ -73,20 +75,44 @@ const SignIn = ({ status, message, onValidated }) => {
 
               <div>
                 <Label htmlFor='password' text='Password' required={true} />
-                <Field
-                  id='password'
-                  name='password'
-                  type='password'
-                  className='submitForm'
-                  // placeholder='Password'
-                  required={true}
-                />
+                <div className='passwordInputGroup'>
+                  <Field
+                    id='password'
+                    name='password'
+                    type={showPassword ? 'text' : 'password'}
+                    className='submitForm'
+                    // placeholder='Password'
+                    required={true}
+                  />
+                  <img
+                    src={visibilityIcon}
+                    alt='show password'
+                    className='showPassword'
+                    onClick={() => setShowPassword((prevState) => !prevState)}
+                  />
+                </div>
                 <ErrorMessage
                   component='div'
                   className='errorMsg'
                   name='password'
                 />
               </div>
+
+              <Link to='/forgot-password' className='forgotPasswordLink'>
+                Forgot Password
+                {/* <img
+                  src={rightArrowIcon}
+                  alt='right arrow'
+                  className='rightArrow'
+                /> */}
+                <RightArrowIcon
+                  fill='#D89F7C'
+                  width='1.5em'
+                  height='1.5em'
+                  className='rightArrow'
+                  onMouseOut="this.style.fill='#9B7A6C'"
+                />
+              </Link>
 
               <button
                 disabled={!formik.isValid || !formik.dirty}
@@ -98,6 +124,19 @@ const SignIn = ({ status, message, onValidated }) => {
             </Form>
           )}
         </Formik>
+
+        {/* Google OAuth */}
+
+        <Link to='/sign-up' className='signUpLink'>
+          Sign Up Instead
+          <RightArrowIcon
+            fill='#D89F7C'
+            width='1.5em'
+            height='1.5em'
+            className='rightArrow'
+            onMouseOut="this.style.fill='#9B7A6C'"
+          />
+        </Link>
       </div>
 
       <Footer />

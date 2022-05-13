@@ -1,6 +1,59 @@
 // Sign in form section
 .signInForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 4em;
+  
   form {
     width: 70%;
-  }   
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+
+    .passwordInputGroup {
+      margin: 0;
+      display: flex;      
+      flex-direction: row;
+      position: relative;
+
+      .showPassword {
+          position: absolute;
+          top: 50%;
+          right: 1em;
+          transform: translateY(-50%);
+        }
+    }
+
+    .forgotPasswordLink,
+    .forgotPasswordLink:visited {
+      display: flex;
+      align-items: center;      
+      align-self: flex-end;
+      color: $color-first;     
+      
+      .rightArrow:hover {
+          fill: $color-main-text;
+        }
+    }
+
+    .forgotPasswordLink:hover {
+      color: $color-main-text;
+    }    
+  }  
+  
+  .signUpLink {
+    display: flex;
+    align-items: center;
+    color: $color-first;    
+    
+    .rightArrow:hover {
+      fill: $color-main-text;
+    }
+  }
+
+  .signUpLink:hover {
+    color: $color-main-text;
+  }
 }
