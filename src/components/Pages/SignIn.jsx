@@ -110,7 +110,6 @@ const SignIn = ({ status, message, onValidated }) => {
                   width='1.5em'
                   height='1.5em'
                   className='rightArrow'
-                  onMouseOut="this.style.fill='#9B7A6C'"
                 />
               </Link>
 
@@ -134,7 +133,6 @@ const SignIn = ({ status, message, onValidated }) => {
             width='1.5em'
             height='1.5em'
             className='rightArrow'
-            onMouseOut="this.style.fill='#9B7A6C'"
           />
         </Link>
       </div>
