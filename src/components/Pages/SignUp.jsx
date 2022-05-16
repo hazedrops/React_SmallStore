@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth'
 import { db } from '../../firebase.config'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
@@ -36,32 +40,40 @@ const SignUp = ({ status, message, onValidated }) => {
   // })
   // const { email, password } = formData
 
-  const checkAuth = async (values) => {
-    const { name, email, password } = values
+  const checkAuth = async(name, email, password) => {
 
     try {
       const auth = getAuth()
 
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
 
       const user = userCredential.user
 
       updateProfile(auth.currentUser, {
-        displayName: name
+        displayName: name,
       })
 
+      console.log('Here in checkAuth!!!', name, email, password)
+
       navigate('/')
-
-
     } catch (error) {
       console.log(error)
     }
+
+
   }
 
-  const submitForm = async (values, formik, e) => {
-    e.preventDefault()
+  const submitForm = async (values, formik) => {
+    // e.preventDefault()
 
     const { name, email, password } = values
+
+    // console.log('Values Here!!!', values)
+    // console.log('Up Here!!!', name, email, password)
 
     name &&
       email &&
@@ -73,8 +85,9 @@ const SignUp = ({ status, message, onValidated }) => {
         PASSWORD: password,
       })
 
-    checkAuth(values)
-    
+    // console.log('Down Here!!!', name, email, password)
+     const result = await checkAuth(name, email, password)
+
     formik.resetForm()
   }
 
