@@ -14,8 +14,8 @@
 
   @include media(tablet, desktop, wide) {
     flex-direction: row;
-    justify-content: space-between;
-    padding: 62px 125px 62px 48px;
+    justify-content: space-around;
+    padding: 1em auto;
   }
 
   .footerMenuGroup {

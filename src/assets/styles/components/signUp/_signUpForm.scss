@@ -3,11 +3,15 @@
 .signInForm {
   background-color: $color-main;
   color: $color-main-text;  
-  width: 60%;
+  width: 70%;
   margin: 2em auto 4em;
   display: flex;
   flex-direction: column;
   align-items: center;  
+
+  @include media(tablet, desktop, wide) {
+      width: 50%;
+  }
 
   form {
     display: flex;
@@ -17,11 +21,11 @@
     margin: 2em auto;
 
     @include media(tablet, desktop, wide) {
-      margin: 4em auto;
+      margin: 2em auto 4em;
     }
     
     h1 {
-      margin: 0 1em;
+      // margin: 0 1em;
       font-size: 1.2em;
       text-align: center;
 
@@ -45,19 +49,26 @@
 
         .labelText {
           font-weight: 500;
+          font-size: .8em;
+          padding-bottom: 0;
         }
         
         .required {
           color: red;
           font-weight: 700;
         }
-      }     
+      }   
+      
+      // input {
+      //   padding: 0;
+      //   background-color: pink;
+      // }
 
       .submitForm {
         margin: 0 auto;
         border: none;
-        height: 3em;
-        line-height: 2em;
+        height: 2.5em;
+        line-height: 1.5em;
         width: 100%;
         padding-left: .5em;
 

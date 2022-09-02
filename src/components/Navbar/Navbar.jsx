@@ -40,6 +40,10 @@ function Navbar() {
 
       {/* Shown by hamburger button click */}
       <div className={`navMenu ${navbarOpen ? 'show' : 'hide'}`}>
+        <div className='hamburgerDiv popupClose' onClick={handleToggle}>
+          <Hamburger isOpen={navbarOpen} />
+        </div>
+
         <ul>
           <li>Bags</li>
           <li>Shoes</li>
@@ -50,7 +54,7 @@ function Navbar() {
 
       <div className='iconDiv'>
         <GoSearch />
-        
+
         <Link to='/sign-in'>
           <FaUser />
         </Link>

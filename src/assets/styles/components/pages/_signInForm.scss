@@ -1,46 +1,57 @@
 // Sign in form section
 .signInForm {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
   padding-bottom: 4em;
   
+  header {
+    margin-top: 1.5em;
+    
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  
   form {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
+    // width: 70%;
+    // display: flex;
+    // flex-direction: column;
+    // margin-bottom: 1em;
 
-    .passwordInputGroup {
+    // input {
+    //   background: pink;
+    // }
+
+    .passwordInputDiv {
       margin: 0;
       display: flex;      
-      flex-direction: row;
       position: relative;
 
       .showPassword {
           position: absolute;
-          top: 50%;
-          right: 1em;
-          transform: translateY(-50%);
+          top: 75%;
+          right: .5em;
+          transform: translateY(-65%);
         }
     }
 
-    .forgotPasswordLink,
-    .forgotPasswordLink:visited {
-      display: flex;
-      // align-items: center;      
-      align-self: flex-end;
-      color: $color-first;     
+    // .forgotPasswordLink,
+    // .forgotPasswordLink:visited {
+    //   display: flex;
+    //   // align-items: center;      
+    //   align-self: flex-end;
+    //   color: $color-first;     
       
-      .rightArrow:hover {
-          fill: $color-main-text;
-        }
-    }
+    //   .rightArrow:hover {
+    //       fill: $color-main-text;
+    //     }
+    // }
 
-    .forgotPasswordLink:hover {
-      color: $color-main-text;
-    }    
+    // .forgotPasswordLink:hover {
+    //   color: $color-main-text;
+    // }    
   }  
   
   .signUpLink,
