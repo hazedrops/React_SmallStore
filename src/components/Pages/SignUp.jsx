@@ -5,9 +5,8 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth'
+import { setDoc, doc, serverTimestamp} from 'firebase/firestore'
 import { db } from '../../firebase.config'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
 
 import Banner from '../Banner'
 import Navbar from '../Navbar/Navbar'
@@ -16,79 +15,58 @@ import Footer from '../Footer/Footer'
 import visibilityIcon from '../../assets/img/newImages/visibilityIcon.svg'
 import { ReactComponent as RightArrowIcon } from '../../assets/img/newImages/RightArrowIcon.svg'
 
-// Define input fields rescrictions
-const SignUpSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Your name is too short!')
-    .max(20, 'Your name is too long!')
-    .required('Please enter your name.'),
-  email: Yup.string().email('Invalid email!').required('Required!'),
-  password: Yup.string()
-    .min(8, 'Your password is too short!')
-    .max(20, 'Your password is too long!')
-    .required('Please enter your password.'),
-})
-
 // a basic form
 const SignUp = ({ status, message, onValidated }) => {
   const [showPassword, setShowPassword] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  })
+  const { name, email, password } = formData
 
   const navigate = useNavigate()
-  // const [formData, setFormData] = useState({
-  //   email: '',
-  //   password: ''
-  // })
-  // const { email, password } = formData
 
-  const checkAuth = async(name, email, password) => {
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value, // Change the value of id (either 'id' or 'password') based on the provided id of elem
+    }))
+  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
 
     try {
       const auth = getAuth()
 
+      // Registering user with the createUserWithEmailAndPassword() function that returns promise
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       )
 
+      // Get the user info to save into DB
       const user = userCredential.user
 
       updateProfile(auth.currentUser, {
         displayName: name,
       })
 
-      console.log('Here in checkAuth!!!', name, email, password)
+      // Make a copy of formData
+      const formDataCopy = {...formData}
+      delete formDataCopy.password // Remove password, so not to pass the password into the DB
+      formDataCopy.timestamp = serverTimestamp() // Add timestamp into the formData obj
 
+      // Actually update db using setDoc
+      await setDoc(doc(db, 'users', user.uid), formDataCopy)
+
+      // Redirect to the homepage
       navigate('/')
     } catch (error) {
       console.log(error)
     }
-
-
-  }
-
-  const submitForm = async (values, formik) => {
-    // e.preventDefault()
-
-    const { name, email, password } = values
-
-    console.log('Values Here!!!', values)
-    console.log('Up Here!!!', name, email, password)
-
-    name &&
-      email &&
-      password &&
-      email.indexOf('@') > -1 &&
-      onValidated({
-        NAME: name,
-        EMAIL: email,
-        PASSWORD: password,
-      })
-
-    // console.log('Down Here!!!', name, email, password)
-     const result = await checkAuth(name, email, password)
-
-    formik.resetForm()
   }
 
   return (
@@ -96,98 +74,68 @@ const SignUp = ({ status, message, onValidated }) => {
       <Banner />
       <Navbar />
 
-      <div className='signInForm'>
-        <Formik
-          initialValues={{ name: '', email: '', password: '' }}
-          validationSchema={SignUpSchema}
-          onSubmit={submitForm}
-        >
-          {(formik) => (
-            <Form>
-              <h1>Welcome Back!</h1>
+      {/* Sign up page */}
+      <div className='infoForm signInForm'>
+        <header>
+          <h1>Welcome Back!</h1>
+        </header>
 
-              <div>
-                <Label htmlFor='name' text='Name' required={true} />
-                <Field
-                  id='name'
-                  name='name'
-                  className='submitForm'
-                  // placeholder='name'
-                  required={true}
-                />
-                <ErrorMessage
-                  component='div'
-                  className='errorMsg'
-                  name='name'
-                />
-              </div>
+        <form onSubmit={onSubmit}>
+          <div className='nameInputDiv'>
+            <Label htmlFor='name' text='Name' required={true} />
+            <input
+              type='text'
+              id='name'
+              className='submitForm'
+              value={name}
+              onChange={onChange}
+            />
+          </div>
 
-              <div>
-                <Label htmlFor='email' text='Email Address' required={true} />
-                <Field
-                  id='email'
-                  name='email'
-                  className='submitForm'
-                  // placeholder='Email'
-                  required={true}
-                />
-                <ErrorMessage
-                  component='div'
-                  className='errorMsg'
-                  name='email'
-                />
-              </div>
+          <div className='emailInputDiv'>
+            <Label htmlFor='email' text='Email Address' required={true} />
+            <input
+              type='email'
+              id='email'
+              className='submitForm'
+              value={email}
+              onChange={onChange}
+            />
+          </div>
 
-              <div>
-                <Label htmlFor='password' text='Password' required={true} />
-                <div className='passwordInputGroup'>
-                  <Field
-                    id='password'
-                    name='password'
-                    type={showPassword ? 'text' : 'password'}
-                    className='submitForm'
-                    // placeholder='Password'
-                    required={true}
-                  />
-                  <img
-                    src={visibilityIcon}
-                    alt='show password'
-                    className='showPassword'
-                    onClick={() => setShowPassword((prevState) => !prevState)}
-                  />
-                </div>
-                <ErrorMessage
-                  component='div'
-                  className='errorMsg'
-                  name='password'
-                />
-              </div>
+          <div className='passwordInputDiv'>
+            <Label htmlFor='password' text='Password' required={true} />
+            <input
+              // if showPassword is true, then type should be 'text' to show the password text
+              type={showPassword ? 'text' : 'password'}
+              id='password'
+              className='submitForm'
+              // placeholder='Password'
+              value={password}
+              onChange={onChange}
+            />
+            <img
+              src={visibilityIcon}
+              alt='show password'
+              className='showPassword'
+              onClick={() => setShowPassword((prevState) => !prevState)}
+            />
+          </div>
 
-              {/* <Link to='/forgot-password' className='forgotPasswordLink'>
-                Forgot Password
-                {/* <img
-                  src={rightArrowIcon}
-                  alt='right arrow'
-                  className='rightArrow'
-                /> */}
-              {/* <RightArrowIcon
-                  fill='#D89F7C'
-                  width='1.5em'
-                  height='1.5em'
-                  className='rightArrow'
-                />
-              </Link> */}
+          <Link to='/forgot-password' className='forgotPasswordLink'>
+            Forgot Password
+            <RightArrowIcon
+              fill='#D89F7C'
+              width='1.5em'
+              height='1.5em'
+              className='rightArrow'
+            />
+          </Link>
 
-              <button
-                disabled={!formik.isValid || !formik.dirty}
-                type='submit'
-                onClick={submitForm}
-              >
-                Sign Up
-              </button>
-            </Form>
-          )}
-        </Formik>
+          <div className='signUpBar'>
+            <button className='signUpButton'>Sign Up</button>
+          </div>
+        </form>
 
         {/* Google OAuth */}
 

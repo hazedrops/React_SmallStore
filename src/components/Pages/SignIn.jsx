@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 import Banner from '../Banner'
 import Navbar from '../Navbar/Navbar'
@@ -19,7 +20,29 @@ const SignIn = ({ status, message, onValidated }) => {
 
   const navigate = useNavigate()
 
-  const onChange = () => {}  
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value // Change the value of id (either 'id' or 'password') by the provided id of elem
+    }))
+  }  
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const auth = getAuth()
+  
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+  
+      if(userCredential.user) {
+        console.log(auth.currentUser.displayName);
+        navigate('/')
+      }      
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div>
@@ -27,12 +50,12 @@ const SignIn = ({ status, message, onValidated }) => {
       <Navbar />
 
       {/* Sign in page */}
-      <div className='signInForm'>
+      <div className='infoForm signInForm'>
         <header>
           <h1>Welcome Back!</h1>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='emailInputDiv'>
             <Label htmlFor='email' text='Email Address' required={true} />
             <input
@@ -63,8 +86,23 @@ const SignIn = ({ status, message, onValidated }) => {
               onClick={() => setShowPassword((prevState) => !prevState)}
             />
           </div>
+
+          <Link to='/forgot-password' className='forgotPasswordLink'>
+            Forgot Password
+            <RightArrowIcon
+              fill='#D89F7C'
+              width='1.5em'
+              height='1.5em'
+              className='rightArrow'
+            />
+          </Link>
+
+          <div className='signInBar'>
+            <button className='signInButton'>
+              Sign In
+            </button>
+          </div>
         </form>
-        
 
         {/* Google OAuth */}
 

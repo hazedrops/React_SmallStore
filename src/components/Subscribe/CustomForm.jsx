@@ -55,7 +55,7 @@ const CustomForm = ({ status, message, onValidated }) => {
       <Banner />
       <Navbar />
 
-      <div className='signUpForm'>
+      <div className='infoForm'>
         {status === 'sending' && (
           <animated.div className='message sending' style={props}>
             sending...
