@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import UserContext from "../../context/UserContext"
 import { Link, useNavigate } from 'react-router-dom'
+
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 import Banner from '../Banner'
@@ -11,6 +13,8 @@ import { ReactComponent as RightArrowIcon } from '../../assets/img/newImages/Rig
 
 // a basic form
 const SignIn = ({ status, message, onValidated }) => {
+  const { isLoggedIn, currentUser, setIsLoggedIn, setCurrentUser } = useContext(UserContext)
+
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
@@ -36,7 +40,13 @@ const SignIn = ({ status, message, onValidated }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
   
       if(userCredential.user) {
-        console.log(auth.currentUser.displayName);
+        // console.log(auth.currentUser)
+
+        setCurrentUser(auth.currentUser)
+        setIsLoggedIn((prevState) => !prevState)
+        // setIsLoggedIn(true)       
+        console.log('isLoggedIn ?', isLoggedIn)
+
         navigate('/')
       }      
     } catch (error) {

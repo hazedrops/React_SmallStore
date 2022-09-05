@@ -1,3 +1,4 @@
+import { UserProvider } from './context/UserContext'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
@@ -11,21 +12,23 @@ import SignUp from './components/Pages/SignUp'
 import SignIn from './components/Pages/SignIn'
 
 function App() {
+
   return (
-    <>
+    <UserProvider>
       <Router basename='/yoonjeongchoi/projects/SmallStoreReact'>
         <Routes>
           <Route exact path='/' element={<Home />} />
 
-          <Route path='/profile' element={<Profile />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
 
+          <Route path='/profile' element={<Profile />} />
+
           <Route path='/subscribe-form' element={<SubscribeForm />} />
         </Routes>
       </Router>
-    </>
+    </UserProvider>
   )
 }
 
