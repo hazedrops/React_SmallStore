@@ -4,18 +4,22 @@ import UserContext from '../../context/UserContext'
 import { getAuth } from 'firebase/auth'
 
 const Profile = () => {
-  const [user, setUser] = useState(null)
-  const { isLoggedIn, currentUser } = useContext(UserContext)
+  // const [user, setUser] = useState(null)
+  const { isLoggedIn, currentUser, setCurrentUser } = useContext(UserContext)
 
   const auth = getAuth()
 
+  // console.log("Auth is ...", auth)
+
+  // setCurrentUser(auth.currentUser)
+
   useEffect(() => {
-    console.log("is user logged in? ", isLoggedIn)
+    // console.log("is user logged in? ", isLoggedIn)
 
-    setUser(auth.currentUser)
-  }, [])
+    setCurrentUser(auth.currentUser)
+  })
 
-  return user ? <h1>{currentUser.displayName}</h1> : 'Not Logged In'
+  return currentUser ? <h1>{currentUser.displayName}</h1> : 'Not Logged In'
 }
 
 export default Profile;

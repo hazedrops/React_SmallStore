@@ -1,5 +1,7 @@
 import { UserProvider } from './context/UserContext'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 
@@ -12,7 +14,6 @@ import SignUp from './components/Pages/SignUp'
 import SignIn from './components/Pages/SignIn'
 
 function App() {
-
   return (
     <UserProvider>
       <Router basename='/yoonjeongchoi/projects/SmallStoreReact'>
@@ -28,6 +29,8 @@ function App() {
           <Route path='/subscribe-form' element={<SubscribeForm />} />
         </Routes>
       </Router>
+
+      <ToastContainer />      
     </UserProvider>
   )
 }

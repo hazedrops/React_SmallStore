@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+
+import { toast } from 'react-toastify'
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -65,7 +68,17 @@ const SignUp = ({ status, message, onValidated }) => {
       // Redirect to the homepage
       navigate('/')
     } catch (error) {
-      console.log(error)
+      // console.log("Error is: ", error.message)
+      // console.log('Error type is: ', typeof error.message)
+      const msg = error.message.split('auth/')[1].slice(0, -2)
+
+      // console.log(msg)
+
+      toast.error(`Error: ${msg}`, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1000,
+        hideProgressBar: false,
+      })
     }
   }
 
