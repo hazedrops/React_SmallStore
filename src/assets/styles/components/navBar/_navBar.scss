@@ -15,10 +15,14 @@
     
   }
 
-  button {
-    left: 40px;
-    top: 40px;
-    z-index: 10;
-    cursor: pointer;
+  .iconDiv {
+    position: relative;
   }
+
+  // button {
+  //   left: 40px;
+  //   top: 40px;
+  //   z-index: 10;
+  //   cursor: pointer;
+  // }
 }

@@ -5,63 +5,80 @@ import { IoStorefrontOutline } from 'react-icons/io5'
 import { FaUser, FaShoppingCart } from 'react-icons/fa'
 import { GoSearch } from 'react-icons/go'
 import Hamburger from './Hamburger'
+import Submenu from './Submenu'
 
 // Navigation bar
 function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const [isHovering, setIsHovering] = useState(false);
 
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev)
   }
 
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  // const handleMouseOut = () => {
+  //   setIsHovering(false);
+  // };
+
   return (
-    <nav className='navBar'>
-      <div className='logoMenuGroup'>
-        <div className='hamburgerDiv' onClick={handleToggle}>
-          <Hamburger isOpen={navbarOpen} />
+    <>
+      <nav className='navBar'>
+        <div className='logoMenuGroup'>
+          <div className='hamburgerDiv' onClick={handleToggle}>
+            <Hamburger isOpen={navbarOpen} />
+          </div>
+
+          <div className='logoDiv'>
+            {/* <img src={logo} className='logoImg' alt='logo' /> */}
+            <Link to='/'>
+              <IoStorefrontOutline className='logoIcon' alt='logo' />
+            </Link>
+          </div>
         </div>
 
-        <div className='logoDiv'>
-          {/* <img src={logo} className='logoImg' alt='logo' /> */}
-          <Link to='/'>
-            <IoStorefrontOutline className='logoIcon' alt='logo' />
-          </Link>
-        </div>
-      </div>
-
-      <div className='menuInBar'>
-        <ul>
-          <li>Bags</li>
-          <li>Shoes</li>
-          <li>accessories</li>
-          <li>sale!</li>
-        </ul>
-      </div>
-
-      {/* Shown by hamburger button click */}
-      <div className={`navMenu ${navbarOpen ? 'show' : 'hide'}`}>
-        <div className='hamburgerDiv popupClose' onClick={handleToggle}>
-          <Hamburger isOpen={navbarOpen} />
+        <div className='menuInBar'>
+          <ul>
+            <li>Bags</li>
+            <li>Shoes</li>
+            <li>accessories</li>
+            <li>sale!</li>
+          </ul>
         </div>
 
-        <ul>
-          <li>Bags</li>
-          <li>Shoes</li>
-          <li>accessories</li>
-          <li>sale!</li>
-        </ul>
-      </div>
+        {/* Shown by hamburger button click */}
+        <div className={`navMenu ${navbarOpen ? 'show' : 'hide'}`}>
+          <div className='hamburgerDiv popupClose' onClick={handleToggle}>
+            <Hamburger isOpen={navbarOpen} />
+          </div>
 
-      <div className='iconDiv'>
-        <GoSearch />
+          <ul>
+            <li>Bags</li>
+            <li>Shoes</li>
+            <li>accessories</li>
+            <li>sale!</li>
+          </ul>
+        </div>
 
-        <Link to='/sign-in'>
-          <FaUser />
-        </Link>
+        <div className='iconDiv'>
+          <GoSearch />
 
-        <FaShoppingCart />
-      </div>
-    </nav>
+          {/* <Link to='/sign-in'> */}
+          <FaUser
+            onMouseOver={handleMouseOver}
+            onClick={handleMouseOver}
+            // onMouseOut={handleMouseOut}
+          />
+          {/* </Link> */}
+
+          <FaShoppingCart />
+        </div>
+      </nav>
+      {isHovering && <Submenu />}
+    </>
   )
 }
 

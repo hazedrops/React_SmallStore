@@ -1,0 +1,45 @@
+// Hamburger Button
+
+.subMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10em;
+  // max-width: 10em;
+  position: absolute;
+  top: 8em; 
+  right: 3em; 
+  background: $color-first;
+  color: $color-white;
+  font-weight: 500;  
+  padding: .7em;
+  // border: 2px solid red;
+
+  // @include tablet {
+  //   border: 2px solid yellow;
+  // }
+  // @include media(desktop, wide) {
+  //   border: 2px solid purple;
+  // }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    cursor: pointer;
+    line-height: 2em;
+  }
+  
+  // width: 28px;
+  // height: 28px;
+  // margin-right: 25px;
+  // border: 1px solid $color-main-text;
+  // flex-flow: column nowrap;
+  // border-radius: 50%;
+  // z-index: 10;
+
+  // @include media(desktop, wide) {
+  //   display: none;
+  // }
+}

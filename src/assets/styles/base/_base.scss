@@ -89,4 +89,38 @@ body {
   background-color: $color-white;
   overflow-x: hidden;
   overflow-y: scroll;
+  position: relative;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 140px;
+  height: 48px;
+  margin: 2em auto;
+  background-color: $color-main-text;
+  color: $color-white;
+  cursor: pointer;
+  font-family: $font-main;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background-color: darken($color-main-text, 10%);
+  }
+
+  &:disabled {
+    opacity: .3;
+  }
+
+  @include media(desktop, wide) {
+    font-size: 14px;
+    height: 54px;
+  }
 }
