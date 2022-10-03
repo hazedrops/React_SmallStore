@@ -9,10 +9,12 @@
   position: absolute;
   top: 8em; 
   right: 3em; 
-  background: $color-first;
+      font-weight: 500;
+  background: rgba($color-first, .9);
   color: $color-white;
-  font-weight: 500;  
+  font-weight: 600;  
   padding: .7em;
+  z-index: 1;
   // border: 2px solid red;
 
   // @include tablet {
@@ -29,8 +31,19 @@
   li {
     cursor: pointer;
     line-height: 2em;
+    padding: .5em;
+
+    a {
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    a:visited {
+      color: $color-white;
+    }
   }
-  
+
+    
   // width: 28px;
   // height: 28px;
   // margin-right: 25px;

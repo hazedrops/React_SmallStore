@@ -20,6 +20,7 @@ const SignUpSchema = Yup.object().shape({
 // a basic form
 const CustomForm = ({ status, message, onValidated }) => {
   const submitForm = async (values, formik) => {
+    console.log(formik)
     const { name, email } = values
 
     email &&
@@ -30,6 +31,7 @@ const CustomForm = ({ status, message, onValidated }) => {
         NAME: name,
       })
 
+    
     formik.resetForm()
   }
 
@@ -43,7 +45,7 @@ const CustomForm = ({ status, message, onValidated }) => {
     from: {
       height: '100%',
       opacity: 1,
-      padding: '.5em 0 ',
+      padding: '0.5em 0 ',
     },
 
     reset: true,

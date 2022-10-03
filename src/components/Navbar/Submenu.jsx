@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// hamburger button in natigation bar
-function Submenu() {    
+function Submenu() {
   return (
     <div className='subMenu'>
       <ul>
