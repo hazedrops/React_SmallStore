@@ -22,5 +22,8 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    &:hover {
+        fill: lighten($color-main-text, 20%);
+      }
   }
 }

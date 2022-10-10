@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { toast } from 'react-toastify'
-
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -17,6 +15,9 @@ import Label from '../Label'
 import Footer from '../Footer/Footer'
 import visibilityIcon from '../../assets/img/newImages/visibilityIcon.svg'
 import { ReactComponent as RightArrowIcon } from '../../assets/img/newImages/RightArrowIcon.svg'
+
+import { toast } from 'react-toastify'
+
 
 // a basic form
 const SignUp = ({ status, message, onValidated }) => {

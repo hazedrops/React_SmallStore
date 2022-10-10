@@ -106,6 +106,10 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         border: none;
+
+        &:hover {
+          background-color: darken($color-main-text, 20%);
+        }
       
         @include media(desktop, wide) {
           font-size: 14px;

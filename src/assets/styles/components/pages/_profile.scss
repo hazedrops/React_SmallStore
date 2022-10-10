@@ -3,16 +3,80 @@
   padding-bottom: 4em;
   
   header {
+    width: 100%;
     margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-    p {
+    h1 {
       font-size: 1.5em;
-    }
+    }    
+  }
 
-    // .logOut {
-    //   background: red;
-    //   color: white;
-    // }
+  main {
+        .profileDetailsHeader {
+          display: flex;
+          justify-content: space-between;
+          // max-width: 500px;
+        }
+    
+        .personalDetailsText {
+          font-weight: 600;
+        }
+    
+        .changePersonalDetails {
+          cursor: pointer;
+          font-weight: 600;
+          color: $color-main-text;
+        }
+    
+        .profileCard {
+          background-color: #ffffff;
+          border: 2px solid red;
+          border-radius: 1em;
+          margin: 1em;
+          padding: 1em;
+          box-shadow: rgba(0, 0, 0, 0.2);          
+          // max-width: 100%;
+        }
+    
+        .profileDetails {
+          display: flex;
+          flex-direction: column;
+        }
+    
+        .profileName,
+        .profileEmail,
+        .profileAddress,
+        .profileAddressActive,
+        .profileEmailActive,
+        .profileNameActive {
+          all: unset;
+          margin: 0.3rem 0;
+          font-weight: 600;
+          width: 100%;
+        }
+    
+        .profileNameActive {
+          background-color: rgba(44, 44, 44, 0.1);
+        }
+    
+        .profileEmail,
+        .profileAddress,
+        .profileAddressActive,
+        .profileEmailActive {
+          font-weight: 500;
+        }
+    
+        .profileEmailActive {
+          background-color: rgba(44, 44, 44, 0.1);
+        }
+    
+        .profileAddressActive {
+          background-color: rgba(44, 44, 44, 0.1);
+        }
   }
 
   
