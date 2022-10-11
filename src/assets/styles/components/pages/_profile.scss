@@ -16,69 +16,92 @@
   }
 
   main {
-        .profileDetailsHeader {
-          display: flex;
-          justify-content: space-between;
-          // max-width: 500px;
-        }
-    
-        .personalDetailsText {
-          font-weight: 600;
-        }
-    
-        .changePersonalDetails {
-          cursor: pointer;
-          font-weight: 600;
-          color: $color-main-text;
-        }
-    
-        .profileCard {
-          background-color: #ffffff;
-          border: 2px solid red;
-          border-radius: 1em;
-          margin: 1em;
-          padding: 1em;
-          box-shadow: rgba(0, 0, 0, 0.2);          
-          // max-width: 100%;
-        }
-    
-        .profileDetails {
-          display: flex;
-          flex-direction: column;
-        }
-    
-        .profileName,
-        .profileEmail,
-        .profileAddress,
-        .profileAddressActive,
-        .profileEmailActive,
-        .profileNameActive {
-          all: unset;
-          margin: 0.3rem 0;
-          font-weight: 600;
-          width: 100%;
-        }
-    
-        .profileNameActive {
-          background-color: rgba(44, 44, 44, 0.1);
-        }
-    
-        .profileEmail,
-        .profileAddress,
-        .profileAddressActive,
-        .profileEmailActive {
-          font-weight: 500;
-        }
-    
-        .profileEmailActive {
-          background-color: rgba(44, 44, 44, 0.1);
-        }
-    
-        .profileAddressActive {
-          background-color: rgba(44, 44, 44, 0.1);
-        }
-  }
+    width: 80%;
 
-  
-  
+    .profileDetailsHeader {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .personalDetailsText {
+      font-weight: 600;
+    }
+
+    .changePersonalDetails {
+      cursor: pointer;
+      color: $color-white;
+      background: $color-first;
+      padding: .5em;
+      border-radius: 10px;
+    }
+
+    .profileCard {
+      width: 100%;
+      background-color: #ffffff;
+      // border: 2px solid red;
+      border-radius: 1em;
+      margin: 1em auto;
+      padding: 1em 1.5em;
+      box-shadow: rgba(0, 0, 0, 0.2);          
+      // max-width: 100%;
+
+      .personalDetailDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+
+        label {
+          position: absolute;
+          color: $color-main-text;
+          top: -.4em;
+          left: .5em;
+          padding: 0 .5em;
+          background-color: $color-white;
+          // padding: .5em;
+          // border-bottom: 1px solid $color-first;;
+          // margin-right: 1em;
+        }
+      }
+    }
+
+    .profileDetails {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profileName,
+    .profileEmail,
+    .profileAddress,
+    .profileAddressActive,
+    .profileEmailActive,
+    .profileNameActive {
+      all: unset;
+      margin: 0.5rem 0;
+      font-weight: 600;
+      line-height: 1.2em;
+      padding: .5em;
+      width: 100%;
+      border: 1px solid $color-first;
+    }
+
+    .profileNameActive {
+      background-color: rgba(44, 44, 44, 0.1);
+    }
+
+    .profileEmail,
+    .profileAddress,
+    .profileAddressActive,
+    .profileEmailActive {
+      font-weight: 500;
+    }
+
+    .profileEmailActive {
+      background-color: rgba(44, 44, 44, 0.1);
+    }
+
+    .profileAddressActive {
+      background-color: rgba(44, 44, 44, 0.1);
+    }
+  }  
 }

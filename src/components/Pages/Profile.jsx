@@ -77,30 +77,38 @@ const Profile = () => {
                 setChangeDetails((prevState) => !prevState)
               }}
             >
-              {changeDetails ? 'done' : 'change'}
+              {changeDetails ? 'Done' : 'Change'}
             </p>
           </div>
 
           <div className='profileCard'>
             <form>
-              <input
-                type='text'
-                id='name'
-                className={!changeDetails ? 'profileName' : 'profileNameActive'}
-                disabled={!changeDetails}
-                value={name}
-                onChange={onChange}
-              />
-              <input
-                type='text'
-                id='email'
-                className={
-                  !changeDetails ? 'profileEmail' : 'profileEmailActive'
-                }
-                disabled={!changeDetails}
-                value={email}
-                onChange={onChange}
-              />
+              <div className='personalDetailDiv'>
+                <label>Name</label>
+                <input
+                  type='text'
+                  id='name'
+                  className={
+                    !changeDetails ? 'profileName' : 'profileNameActive'
+                  }
+                  disabled={!changeDetails}
+                  value={name}
+                  onChange={onChange}
+                />
+              </div>
+              <div className='personalDetailDiv'>
+                <label>Email</label>
+                <input
+                  type='text'
+                  id='email'
+                  className={
+                    !changeDetails ? 'profileEmail' : 'profileEmailActive'
+                  }
+                  disabled={!changeDetails}
+                  value={email}
+                  onChange={onChange}
+                />
+              </div>
             </form>
           </div>
         </main>
