@@ -47,7 +47,7 @@ const SignIn = ({ status, message, onValidated }) => {
         setCurrentUser(auth.currentUser)
         setIsLoggedIn((prevState) => !prevState)
         // setIsLoggedIn(true)       
-        console.log('isLoggedIn ?', isLoggedIn)
+        // console.log('isLoggedIn ?', isLoggedIn)
 
         navigate('/')
       }      

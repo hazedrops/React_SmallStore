@@ -33,6 +33,10 @@
     line-height: 2em;
     padding: .5em;
 
+    &:first-child {
+      cursor: default;
+    }
+
     a {
       text-decoration: none;
       font-size: 1em;
@@ -47,8 +51,19 @@
     }
 
     .fa-user,
-    .fa-id-card {
+    .fa-id-card,
+    .fa-right-from-bracket {
       padding-right: .5em;
+    }
+
+    .userName {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: darken($color-main-text, 20%);
+    }
+
+    .logOut {
+      cursor: pointer;
     }
   }
 

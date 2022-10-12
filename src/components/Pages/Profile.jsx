@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from 'react'
-// import UserContext from '../../context/UserContext'
+import { useState, useRef, useEffect, useContext } from 'react'
+import UserContext from '../../context/UserContext'
 
 import { getAuth, updateProfile } from 'firebase/auth'
-import { updateDoc } from 'firebase/firestore'
+import { updateDoc, doc } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 
 import { useNavigate, Link } from 'react-router-dom'
@@ -29,21 +29,44 @@ const Profile = () => {
 
   // console.log("auth is: ", auth)
 
-  // const { isLoggedIn, currentUser, setCurrentUser } = useContext(UserContext)
+  const { isLoggedIn, currentUser, setCurrentUser } = useContext(UserContext)
 
   const { name, email } = formData
 
   const navigate = useNavigate()
 
-  const onLogout = () => {
-    // Logging out from Firebase
-    auth.signOut()
+  const inputRef = useRef()
 
-    navigate('/')
-  }
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [changeDetails])
 
-  const onSubmit = () => {
-    console.log(123)
+  // const onLogout = () => {
+  //   // Logging out from Firebase
+  //   auth.signOut()
+
+  //   navigate('/')
+  // }
+
+  const onSubmit = async () => {
+    try {
+      if(auth.currentUser.displayName !== name) {
+        // Update display name in Firebase
+        await updateProfile(auth.currentUser, {
+          displayName: name
+        })
+
+        // Update in Firestore
+        const userRef = doc(db, 'users', auth.currentUser.uid)
+
+        await updateDoc(userRef, {
+          // same as (name: name)
+          name
+        })
+      }
+    } catch (error) {
+      toast.error('Could not update Profile details')
+    }
   }
 
   const onChange = (e) => {
@@ -54,7 +77,7 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className='pageBody'>
       <Banner />
       <Navbar />
 
@@ -69,7 +92,7 @@ const Profile = () => {
 
         <main>
           <div className='profileDetailsHeader'>
-            <p className='profileDetailsText'>Personal Details</p>
+            <p className='profileDetailsText'>Profile Info</p>
             <p
               className='changePersonalDetails'
               onClick={() => {
@@ -77,7 +100,7 @@ const Profile = () => {
                 setChangeDetails((prevState) => !prevState)
               }}
             >
-              {changeDetails ? 'Done' : 'Change'}
+              {changeDetails ? 'Done' : 'Edit profile info'}
             </p>
           </div>
 
@@ -94,25 +117,29 @@ const Profile = () => {
                   disabled={!changeDetails}
                   value={name}
                   onChange={onChange}
+                  ref={inputRef}
                 />
               </div>
               <div className='personalDetailDiv'>
                 <label>Email</label>
                 <input
-                  type='text'
+                  type='email'
                   id='email'
                   className={
                     !changeDetails ? 'profileEmail' : 'profileEmailActive'
                   }
                   disabled={!changeDetails}
                   value={email}
-                  onChange={onChange}
+                  onChange={onChange}                  
+                  readOnly={true}
                 />
               </div>
             </form>
           </div>
         </main>
       </div>
+
+      <Footer />
     </div>
   )
 }

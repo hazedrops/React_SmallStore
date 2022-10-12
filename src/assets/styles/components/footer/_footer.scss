@@ -1,9 +1,9 @@
 // Footer
 
 .footer {
-  height: 427px;
-
+  // height: 427px;
+  
   @include media(tablet, desktop, wide) {
-    height: 416px;
+    // height: 416px;
   }
 }
