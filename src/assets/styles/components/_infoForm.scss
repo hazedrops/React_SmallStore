@@ -2,21 +2,24 @@
 .infoForm {
   background-color: $color-main;
   color: $color-main-text;  
-  width: 70%;
+  width: 70vw;
+  min-width: 400px;
   margin: 2em auto 4em;
   display: flex;
   flex-direction: column;
   align-items: center;  
 
   @include media(tablet, desktop, wide) {
-      width: 50%;
+    width: 70vw;
+    min-width: 600px;
+    // max-width: 100%;
   }
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 70vw;
+    max-width: 80%;
     margin: 2em auto;
 
     @include media(tablet, desktop, wide) {
@@ -69,10 +72,16 @@
         height: 2.5em;
         line-height: 1.5em;
         width: 100%;
+        max-width: 720px;
+        min-width: 70%;
         padding-left: .5em;
 
         &:focus {
           outline: 2px solid $color-first;
+        }
+
+        @include media(tablet, desktop, wide) {
+          // width: 80%;
         }
       }
 

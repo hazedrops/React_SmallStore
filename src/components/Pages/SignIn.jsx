@@ -92,21 +92,23 @@ const SignIn = ({ status, message, onValidated }) => {
 
           <div className='passwordInputDiv'>
             <Label htmlFor='password' text='Password' required={true} />
-            <input
-              // if showPassword is true, then type should be 'text' to show the password text
-              type={showPassword ? 'text' : 'password'}
-              id='password'
-              className='submitForm'
-              // placeholder='Password'
-              value={password}
-              onChange={onChange}
-            />
-            <img
-              src={visibilityIcon}
-              alt='show password'
-              className='showPassword'
-              onClick={() => setShowPassword((prevState) => !prevState)}
-            />
+            <div className='passwordInput'>
+              <input
+                // if showPassword is true, then type should be 'text' to show the password text
+                type={showPassword ? 'text' : 'password'}
+                id='password'
+                className='submitForm'
+                // placeholder='Password'
+                value={password}
+                onChange={onChange}
+              />
+              <img
+                src={visibilityIcon}
+                alt='show password'
+                className='showPassword'
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              />
+            </div>
           </div>
 
           <Link to='/forgot-password' className='forgotPasswordLink'>
@@ -120,9 +122,7 @@ const SignIn = ({ status, message, onValidated }) => {
           </Link>
 
           <div className='signInBar'>
-            <button className='signInButton'>
-              Sign In
-            </button>
+            <button className='signInButton'>Sign In</button>
           </div>
         </form>
 

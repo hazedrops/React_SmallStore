@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import UserContext from '../../context/UserContext'
+
 import { Link, useNavigate } from 'react-router-dom'
 
 import {
@@ -21,6 +23,8 @@ import { toast } from 'react-toastify'
 
 // a basic form
 const SignUp = ({ status, message, onValidated }) => {
+  const { isLoggedIn, currentUser, setIsLoggedIn, setCurrentUser } = useContext(UserContext)
+
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -65,6 +69,9 @@ const SignUp = ({ status, message, onValidated }) => {
 
       // Actually update db using setDoc
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
+
+      setCurrentUser(auth.currentUser)
+      setIsLoggedIn((prevState) => !prevState)
 
       // Redirect to the homepage
       navigate('/')
@@ -119,33 +126,25 @@ const SignUp = ({ status, message, onValidated }) => {
 
           <div className='passwordInputDiv'>
             <Label htmlFor='password' text='Password' required={true} />
-            <input
-              // if showPassword is true, then type should be 'text' to show the password text
-              type={showPassword ? 'text' : 'password'}
-              id='password'
-              className='submitForm'
-              // placeholder='Password'
-              value={password}
-              onChange={onChange}
-            />
-            <img
-              src={visibilityIcon}
-              alt='show password'
-              className='showPassword'
-              onClick={() => setShowPassword((prevState) => !prevState)}
-            />
+            <div className='passwordInput'>
+              <input
+                // if showPassword is true, then type should be 'text' to show the password text
+                type={showPassword ? 'text' : 'password'}
+                id='password'
+                className='submitForm'
+                // placeholder='Password'
+                value={password}
+                onChange={onChange}
+              />
+              <img
+                src={visibilityIcon}
+                alt='show password'
+                className='showPassword'
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              />
+            </div>
           </div>
-
-          <Link to='/forgot-password' className='forgotPasswordLink'>
-            Forgot Password
-            <RightArrowIcon
-              fill='#D89F7C'
-              width='1.5em'
-              height='1.5em'
-              className='rightArrow'
-            />
-          </Link>
-
+          
           <div className='signUpBar'>
             <button className='signUpButton'>Sign Up</button>
           </div>
