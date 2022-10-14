@@ -20,7 +20,6 @@ import { ReactComponent as RightArrowIcon } from '../../assets/img/newImages/Rig
 
 import { toast } from 'react-toastify'
 
-
 // a basic form
 const SignUp = ({ status, message, onValidated }) => {
   const { isLoggedIn, currentUser, setIsLoggedIn, setCurrentUser } = useContext(UserContext)
@@ -34,6 +33,10 @@ const SignUp = ({ status, message, onValidated }) => {
   const { name, email, password } = formData
 
   const navigate = useNavigate()
+
+  // toast('Custom style', {
+  //   className: 'toastStyle'
+  // })
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -82,10 +85,11 @@ const SignUp = ({ status, message, onValidated }) => {
 
       // console.log(msg)
 
-      toast.error(`Error: ${msg}`, {
+      toast(`Error: ${msg}`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
         hideProgressBar: false,
+        pauseOnHover: true,
       })
     }
   }

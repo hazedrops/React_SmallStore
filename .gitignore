@@ -24,3 +24,6 @@ yarn-error.log*
 
 .env
 /src/components/Subscribe/OldVersions
+
+# reference folder
+/ReferenceFolder

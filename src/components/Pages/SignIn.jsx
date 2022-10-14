@@ -58,10 +58,11 @@ const SignIn = ({ status, message, onValidated }) => {
 
       // console.log(msg)
 
-      toast.error(`Error: ${msg}`, {
+      toast(`Error: ${msg}`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
         hideProgressBar: false,
+        pauseOnHover: true,
       })
     }
   }

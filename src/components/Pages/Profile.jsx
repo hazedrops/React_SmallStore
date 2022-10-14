@@ -65,7 +65,13 @@ const Profile = () => {
         })
       }
     } catch (error) {
-      toast.error('Could not update Profile details')
+      toast('Could not update Profile details', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1000,
+        hideProgressBar: false,
+        pauseOnHover: true,
+      })
+      // toast.error('Could not update Profile details')
     }
   }
 
